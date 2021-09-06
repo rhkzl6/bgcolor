@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            background-color: lightyellow;
+        }
+        .bgcolor--blue{
+            background-color: lightblue;
+        } */
+    </style>
+</head>
+<body>
+    <button class="btn_bg">Pop!</button>
+    <script>
+        const btn_bg = document.querySelector('.btn_bg');
+        btn_bg.addEventListener('click' , function (){
+            // console.log('버튼클릭');
+            document.getElementById("imgId").src = "pop2.jpg";
+        });
+        //     function ChangeImg(){
+    // document.getElementById("imgId").src = "pop2.JPG";
+    // }
+    </script>
+    <img id="imgId" src="pop1.JPG">
+</body>
+</html>
