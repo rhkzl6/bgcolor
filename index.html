@@ -6,26 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* body{
+        body{
             background-color: lightyellow;
         }
         .bgcolor--blue{
             background-color: lightblue;
-        } */
+        }
+        .bgcolor--gray{
+            background-color: lightgray;
+        }
     </style>
 </head>
 <body>
-    <button class="btn_bg">Pop!</button>
+    <div class="btns">
+        <button class="btn_toggle">배경색상변경 토글버튼</button>
+        <button class="btn--reset">배경색상 리셋</button>
+        <button class="btn--bggray">배경색상변경 그레이</button>
+    </div>
     <script>
-        const btn_bg = document.querySelector('.btn_bg');
-        btn_bg.addEventListener('click' , function (){
-            // console.log('버튼클릭');
-            document.getElementById("imgId").src = "pop2.jpg";
+        const btnToggle = document.querySelector('.btn_toggle');
+        btnToggle.addEventListener('click', function()  {
+            document.body.classList.toggle('bgcolor--blue');
         });
-        //     function ChangeImg(){
-    // document.getElementById("imgId").src = "pop2.JPG";
-    // }
+        const btnReset = document.querySelector('.btn--reset');
+        btnReset.addEventListener('click', function()  {
+            document.body.classList.remove('bgcolor--blue');
+        });
     </script>
-    <img id="imgId" src="pop1.JPG">
 </body>
 </html>
