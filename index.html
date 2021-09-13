@@ -15,6 +15,18 @@
         .bgcolor--gray{
             background-color: lightgray;
         }
+        .bgimg--winter{
+            background-image: url(winter.jpg);
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: 100%;
+        }
+        .btns{
+            position: relative;
+            margin: auto;
+            text-align: center;
+            top: 60px;
+        }
     </style>
 </head>
 <body>
@@ -22,6 +34,7 @@
         <button class="btn_toggle">배경색상변경 토글버튼</button>
         <button class="btn--reset">배경색상 리셋</button>
         <button class="btn--bggray">배경색상변경 그레이</button>
+        <button class="btn--bgimg">배경 이미지</button>
     </div>
     <script>
         const btnToggle = document.querySelector('.btn_toggle');
@@ -30,11 +43,15 @@
         });
         const btnReset = document.querySelector('.btn--reset');
         btnReset.addEventListener('click', function()  {
-            document.body.classList.remove('bgcolor--blue', 'bgcolor--gray');
+            document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bgimg--winter' );
         });
         const btnBgGray = document.querySelector('.btn--bggray');
         btnBgGray.addEventListener('click', function(){
             document.body.classList.add('bgcolor--gray');
+        });
+        const btnImg = document.querySelector('.btn--bgimg');
+        btnImg.addEventListener('click', function(){
+            document.body.classList.toggle('bgimg--winter');
         });
     </script>
 </body>
