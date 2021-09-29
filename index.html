@@ -56,21 +56,20 @@
     <script>
         const btnToggle = document.querySelector('.btn_toggle');
         btnToggle.addEventListener('click', function()  {
+            bgContainer.classList.remove('bg__img--show');
             document.body.classList.toggle('bgcolor--blue');
+
         });
         const btnReset = document.querySelector('.btn--reset');
         btnReset.addEventListener('click', function()  {
+            bgContainer.classList.remove('bg__img--show');
             document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg__img' );
         });
         const btnBgGray = document.querySelector('.btn--bggray');
-        btnBgGray.addEventListener('click', function(){
+            btnBgGray.addEventListener('click', function(){
+            bgContainer.classList.remove('bg__img--show');
             document.body.classList.add('bgcolor--gray');
         });
-        const btnImg = document.querySelector('.btn--bgimg');
-
-        // btnImg.addEventListener('click', function(){
-        //     document.body.classList.toggle('bgimg--winter');
-        // });
         const bgContainer = document.querySelector('.bg__img');
         const btnbgImg = document.querySelector('.btn--bgimg');
         btnbgImg.addEventListener('click',function(){
