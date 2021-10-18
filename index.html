@@ -10,7 +10,7 @@
             background-color: lightyellow;
             transition: all 1s;
             margin: 0;
-            height: 2000px;
+            height: 3000px;
         }
         .bgcolor--blue{
             background-color: lightblue;
@@ -46,6 +46,15 @@
         .btns.bgshow {
             background-color: tomato;
         }
+        .Top{
+            position: fixed;
+            top: 800px;
+            right: 10%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +69,10 @@
             </div>
         </div>
     </div>
-    <script>
+    <div class="Top" onclick="topup()">
+        <img src="topup.png" alt="">
+    </div>
+<script>
         const btnToggle = document.querySelector('.btn_toggle');
         btnToggle.addEventListener('click', function()  {
             bgContainer.classList.remove('bg__img--show');
@@ -92,6 +104,19 @@
                 navContainer.classList.remove('bgshow');
             }
         });
+
+        document.addEventListener('scroll',function(){
+            if(window.scrollY > 500){
+            document.querySelector(".Top").style.display = "block";
+            console.log("500");
+            }else{
+                document.querySelector(".Top").style.display = "none";
+            }
+        });
+
+        function topup(){
+            window.scrollTo({top:0, left:0, behavior:'smooth'});
+        }
     </script>
 </body>
 </html>
