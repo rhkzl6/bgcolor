@@ -64,6 +64,32 @@
                 opacity: 1;
             }
         }
+        section{
+            width: 100%;
+            text-align: center;
+        }
+
+        .wrapper{
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        #home{
+            padding-top: 88px;
+            text-align: center;
+        }
+
+        h1{
+            color: cornflowerblue;
+            font-size: 48px;
+        }
+        h2{
+            font-size: 32px;
+        }
+        h3{
+            font-size: 24px;
+            font-weight: 300;
+        }
     </style>
 </head>
 <body>
@@ -81,22 +107,48 @@
     <div class="Top" onclick="topup()">
         <img src="topup.png" alt="">
     </div>
+    <section id="home">
+        <div class="wrapper">
+            <h1>Home</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
+    <section id="about">
+        <div class="wrapper">
+            <h1>about</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="wrapper">
+            <h1>skills</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
 <script>
         const btnToggle = document.querySelector('.btn_toggle');
+        const home = document.querySelector('#home');
         btnToggle.addEventListener('click', function()  {
             bgContainer.classList.remove('bg__img--show');
             document.body.classList.toggle('bgcolor--blue');
-
+            home.scrollIntoView({behavior:"smooth", block:"start"});
         });
         const btnReset = document.querySelector('.btn--reset');
+        const about = document.querySelector('#about');
         btnReset.addEventListener('click', function()  {
             bgContainer.classList.remove('bg__img--show');
             document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg__img' );
+            about.scrollIntoView({behavior:"smooth", block:"start"});
         });
         const btnBgGray = document.querySelector('.btn--bggray');
+        const skills = document.querySelector('#skills');
             btnBgGray.addEventListener('click', function(){
             bgContainer.classList.remove('bg__img--show');
             document.body.classList.add('bgcolor--gray');
+            skills.scrollIntoView({behavior:"smooth", block:"start"});
         });
         const bgContainer = document.querySelector('.bg__img');
         const btnbgImg = document.querySelector('.btn--bgimg');
@@ -126,6 +178,7 @@
         function topup(){
             window.scrollTo({top:0, left:0, behavior:'smooth'});
         }
+
     </script>
 </body>
 </html>
