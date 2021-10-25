@@ -97,10 +97,11 @@
     <div class="btns">
         <div class="container">
             <div class="btns__menu">
-                <button class="btn_toggle">배경색상변경 토글버튼</button>
-                <button class="btn--reset">배경색상 리셋</button>
-                <button class="btn--bggray">배경색상변경 그레이</button>
-                <button class="btn--bgimg">배경 이미지</button>        
+                <button class="btn_toggle">home</button>
+                <button class="btn--reset">about</button>
+                <button class="btn--bggray">skills</button>
+                <button class="btn--work">wokr</button>
+                <button class="btn--contact">contact me</button>    
             </div>
         </div>
     </div>
@@ -128,9 +129,25 @@
             <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
         </div>
     </section>
-<script>
+    <section id="work">
+        <div class="wrapper">
+            <h1>wokr</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="wrapper">
+            <h1>contact me</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
+    <script>
+        const bgContainer = document.querySelector('.bg__img');
         const btnToggle = document.querySelector('.btn_toggle');
         const home = document.querySelector('#home');
+
         btnToggle.addEventListener('click', function()  {
             bgContainer.classList.remove('bg__img--show');
             document.body.classList.toggle('bgcolor--blue');
@@ -150,12 +167,24 @@
             document.body.classList.add('bgcolor--gray');
             skills.scrollIntoView({behavior:"smooth", block:"start"});
         });
-        const bgContainer = document.querySelector('.bg__img');
-        const btnbgImg = document.querySelector('.btn--bgimg');
-        btnbgImg.addEventListener('click',function(){
-            bgContainer.classList.add('bg__img--show');
-        });
         
+        // const btnbgImg = document.querySelector('.btn--bgimg');
+        // btnbgImg.addEventListener('click',function(){
+        //     bgContainer.classList.add('bg__img--show');
+        // });
+
+        const contact = document.querySelector('#contact');
+        const contactbtn = document.querySelector('.btn--contact');
+        contactbtn.addEventListener('click', function(){
+        contact.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+
+        const work = document.querySelector('#work');
+        const workbtn = document.querySelector('.btn--work');
+        workbtn.addEventListener('click', function(){
+        work.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+
         const navContainer = document.querySelector('.btns')
         document.addEventListener('scroll' , function(){
             // console.log(window.screenY);
@@ -165,6 +194,8 @@
                 navContainer.classList.remove('bgshow');
             }
         });
+
+        
 
         document.addEventListener('scroll',function(){
             if(window.scrollY > 500){
