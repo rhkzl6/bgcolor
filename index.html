@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <title>Document</title>
     <style>
         body{
@@ -90,9 +91,21 @@
             font-size: 24px;
             font-weight: 300;
         }
+
+        .box{ margin: 15px; position: absolute;}
+        .box1{ width: 50px; height: 50px; background: orange; top: 125px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}
+        .box2{ width: 50px; height: 50px; background: greenyellow; top: 370px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}
+        .box3{ width: 50px; height: 50px; background : tomato; top: 610px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}  
+        .box4{ width: 50px; height: 50px; background : skyblue; top: 860px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}  
+        .box5{ width: 50px; height: 50px; background : thistle; top: 1110px; left: 530px; border-radius: 10px 10px 10px 10px; opacity: 0;}  
     </style>
 </head>
 <body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
     <div class="bg__img"></div>
     <div class="btns">
         <div class="container">
@@ -209,6 +222,40 @@
         function topup(){
             window.scrollTo({top:0, left:0, behavior:'smooth'});
         }
+        
+        var tl = gsap.timeline();
+
+        tl.to(".box1",{
+            x: 200,
+            ease: 'elastic',
+            duration: 2.5,
+            opacity:1,
+        });
+
+        tl.to(".box2",{
+            x: 200,
+            ease: 'elastic',
+            duration: 2.5,
+            opacity:1,
+        });
+        tl.to(".box3",{
+            x: 200,
+            ease: 'elastic',
+            duration: 2.5,
+            opacity:1,
+        });
+        tl.to(".box4",{
+            x: 200,
+            ease: 'elastic',
+            duration: 2.5,
+            opacity:1,
+        });
+        tl.to(".box5",{
+            x: 200,
+            ease: 'elastic',
+            duration: 2.5,
+            opacity:1,
+        });
 
     </script>
 </body>
