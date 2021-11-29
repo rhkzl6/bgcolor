@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <title>Document</title>
     <style>
         body{
@@ -77,7 +78,8 @@
         }
 
         #home{
-            padding-top: 88px;
+            padding-top: 200px;
+            margin-bottom: 600px;
             text-align: center;
         }
 
@@ -94,7 +96,7 @@
         }
 
         .box{ margin: 15px; position: absolute;}
-        .box1{ width: 50px; height: 50px; background: orange; top: 125px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}
+        .box1{ width: 50px; height: 50px; background: orange; top: 235px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}
         .box2{ width: 50px; height: 50px; background: greenyellow; top: 370px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}
         .box3{ width: 50px; height: 50px; background : tomato; top: 610px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}  
         .box4{ width: 50px; height: 50px; background : skyblue; top: 860px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}  
@@ -251,34 +253,43 @@
             opacity:1,});
 
 
-(function () {
-var controller = new ScrollMagic.Controller();
-var scene1 = new ScrollMagic.Scene({
-    triggerElement: "#home", //트리거 설정
-    triggerHook: 0.9
-})
-.setClassToggle(".box1" , "visible")
-.addTo(controller)
-.addIndicators();
+// (function () {
+// var controller = new ScrollMagic.Controller();
+// var scene1 = new ScrollMagic.Scene({
+//     triggerElement: "#home", //트리거 설정
+//     triggerHook: 0.8
+// })
+// .setClassToggle(".box1" , "visible")
+// .addTo(controller)
+// .addIndicators();
 
-var revealElements = document.getElementsByClassName("box");
-for (var i=0; i<revealElements.length; i++) {
+// var revealElements = document.getElementsByClassName("box");
+// for (var i=0; i<revealElements.length; i++) {
 
-var scene2 = new ScrollMagic.Scene({
-    triggerElement: revealElements[i],
-    offset: 50,
-    triggerHook: 0.9
-})
-  .setClassToggle(revealElements[i], "visible") // add class toggle
-.addTo(controller)
-.addIndicators({name: "(box) " + (i+1), colorStart:"#F6B352", colorTrigger:"#F6B352"});
-}
+// var scene2 = new ScrollMagic.Scene({
+//     triggerElement: revealElements[i],
+//     triggerHook: 0.2
+// })
+//   .setClassToggle(revealElements[i], "visible") // add class toggle
+// .addTo(controller)
+// .addIndicators({name: "(box) " + (i+1), colorStart:"#F6B352", colorTrigger:"#F6B352"});
+// }
 
 
-})
+// })
         
+const Home = document.querySelector('#home')
+const controller = new ScrollMagic.Controller();
 
-
+Home.forEach(function(aaa){
+    new ScrollMagic
+    .Scene({
+        triggerElemnet:aaa,
+        triggerHook: 0.8
+    })
+    .setClassToggle(aaa, 'show')
+    .addTo(controller);
+})
 
 
         
