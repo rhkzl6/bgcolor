@@ -60,5 +60,19 @@
             <div class="box back-to-position to-left"></div>
         </div>
     </section>
+    <script>
+        const spyEls = document.querySelectorAll('section.scroll-spy')
+        const controller = new ScrollMagic.controller();
+
+        spyEls.forEach(function(spyEls){
+            new ScrollMagic
+            .Scene({
+                triggerClement: spyEl,
+                triggerHook:0.2
+            })
+            .setClassToggle(spyEls, 'show')
+            .addTo(controller);
+        })
+    </script>
 </body>
 </html>
