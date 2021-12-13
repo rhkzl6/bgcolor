@@ -35,20 +35,35 @@
             opacity: 1;
         }
         .btns{
-            position: fixed;
-            padding: 10px;
+            margin: 0 auto;
             background-color: transparent;
             transition: 0.3s;
-            margin: 0 auto;
+            text-align: center;
             left: 0;
             right: 0;
-            text-align: center;
             top: 60px;
-            
+            position: fixed;
         }
-        .btns.bgshow {
-            background-color: tomato;
+
+        .btns button{
+            padding: 10px;
+            margin-left: 10px;
+            border: 1px solid lightcoral;
+            background-color: rgba(0,0,0,0);
+            color: black;
+            cursor: pointer;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
         }
+
+        .btns button:hover{
+            color: white;
+            background-color: coral;
+        }
+
+        
         .Top{
             position: fixed;
             top: 800px;
@@ -99,29 +114,19 @@
 		opacity: 1;
 	}
 
-        .box{ margin: 15px; position: absolute;}
-        .box1{ width: 50px; height: 50px; background: orange; top: 235px; left: 590px; border-radius: 10px 10px 10px 10px;}
-        .box2{ width: 50px; height: 50px; background: greenyellow; top: 1040px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}
-        /* .box3{ width: 50px; height: 50px; background : tomato; top: 610px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}  
-        .box4{ width: 50px; height: 50px; background : skyblue; top: 860px; left: 590px; border-radius: 10px 10px 10px 10px; opacity: 0;}  
-        .box5{ width: 50px; height: 50px; background : thistle; top: 1110px; left: 530px; border-radius: 10px 10px 10px 10px; opacity: 0;}   */
+        
     </style>
 </head>
 <body>
-    <div class="box box1"></div>
-    <div class="box box2"></div>
-    <div class="box box3"></div>
-    <div class="box box4"></div>
-    <div class="box box5"></div>
     <div class="bg__img"></div>
     <div class="btns">
         <div class="container">
             <div class="btns__menu">
-                <button class="btn_toggle">home</button>
-                <button class="btn--reset">about</button>
-                <button class="btn--bggray">skills</button>
-                <button class="btn--work">work</button>
-                <button class="btn--contact">contact me</button>    
+                <button class="btn_toggle" data-link="#home">home</button>
+                <button class="btn--reset" data-link="#about">about</button>
+                <button class="btn--bggray" data-link="#skills">skills</button>
+                <button class="btn--work" data-link="#work">work</button>
+                <button class="btn--contact" data-link="#contact">contact me</button>    
             </div>
         </div>
     </div>
@@ -164,57 +169,24 @@
         </div>
     </section>
     <script>
-        const bgContainer = document.querySelector('.bg__img');
-        const btnToggle = document.querySelector('.btn_toggle');
-        const home = document.querySelector('#home');
 
-        btnToggle.addEventListener('click', function()  {
-            bgContainer.classList.remove('bg__img--show');
-            document.body.classList.toggle('bgcolor--blue');
-            home.scrollIntoView({behavior:"smooth", block:"start"});
-        });
-        const btnReset = document.querySelector('.btn--reset');
-        const about = document.querySelector('#about');
-        btnReset.addEventListener('click', function()  {
-            bgContainer.classList.remove('bg__img--show');
-            document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg__img' );
-            about.scrollIntoView({behavior:"smooth", block:"start"});
-        });
-        const btnBgGray = document.querySelector('.btn--bggray');
-        const skills = document.querySelector('#skills');
-            btnBgGray.addEventListener('click', function(){
-            bgContainer.classList.remove('bg__img--show');
-            document.body.classList.add('bgcolor--gray');
-            skills.scrollIntoView({behavior:"smooth", block:"start"});
-        });
+    // 이벤트 위임
+
+    const btnsMenu = document.querySelector('.btns__menu');
+    btnsMenu.addEventListener('click', (event) => {
+        console.log(event.target.dataset.link);
+        const target = event.target;
+        const link = target.dataset.link;
+
+        if(link == null){
+            return;
+        }
         
-        // 배경이미지 변환
-        // const btnbgImg = document.querySelector('.btn--bgimg');
-        // btnbgImg.addEventListener('click',function(){
-        //     bgContainer.classList.add('bg__img--show');
-        // });
+        const scrollTo = document.querySelector(link);
+        scrollTo.scrollIntoView({behavior:"smooth", block:"start"});
+    })
 
-        const contact = document.querySelector('#contact');
-        const contactbtn = document.querySelector('.btn--contact');
-        contactbtn.addEventListener('click', function(){
-        contact.scrollIntoView({behavior:"smooth", block:"start"});
-        });
-
-        const work = document.querySelector('#work');
-        const workbtn = document.querySelector('.btn--work');
-        workbtn.addEventListener('click', function(){
-        work.scrollIntoView({behavior:"smooth", block:"start"});
-        });
-
-        const navContainer = document.querySelector('.btns')
-        document.addEventListener('scroll' , function(){
-            // console.log(window.screenY);
-            if (window.scrollY > 100 ) {
-                navContainer.classList.add('bgshow');
-            } else {
-                navContainer.classList.remove('bgshow');
-            }
-        });
+    // 스크롤 내릴시 top up 아이콘 
 
         document.addEventListener('scroll',function(){
             if(window.scrollY > 500){
@@ -230,56 +202,7 @@
         }
         
 
-const box1 = gsap.to('.box1',
-    {x: 200,
-    ease: 'elastic',
-    duration: 2.5,
-    opacity:1,});
-const box2 = gsap.to('.box2',
-    {x: 200,
-    ease: 'elastic',
-    duration: 2.5,
-    opacity:1,});
-const box3 = gsap.to('.box3',
-    {x: 200,
-    ease: 'elastic',
-    duration: 2.5,
-    opacity:1,});
-const box4 = gsap.to('.box4',
-    {x: 200,
-    ease: 'elastic',
-    duration: 2.5,
-    opacity:1,});
-const box5 = gsap.to('.box5',
-    {x: 200,
-    ease: 'elastic',
-    duration: 2.5,
-    opacity:1,});
 
-        
-    function () {
-            
-            var controller = new ScrollMagic.Controller();
-            var scene1 = new ScrollMagic.Scene({
-                triggerElement: "#home", //트리거 설정
-                triggerHook: 0.8
-            })
-.setClassToggle(".box1", "visible")
-.addTo(controller)
-.addIndicators();
-
-var revealElements = document.getElementsByClassName("box");
-for (var i=0; i<revealElements.length; i++) {
-    
-    var scene2 = new ScrollMagic.Scene({
-        triggerElement: revealElements[i],
-        triggerHook: 0.8
-    })
-    .setClassToggle(revealElements[i], "visible") // add class toggle
-    .addTo(controller)
-    .addIndicators({name: "(box) " + (i+1), colorStart:"#F6B352", colorTrigger:"#F6B352"});
-}
-}()
 
 
     </script>
